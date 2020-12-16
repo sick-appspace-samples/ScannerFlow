@@ -10,7 +10,7 @@
         <block type="Consumer" name="view" function="View.view(iconics,decoration)" x="604.83" y="101.3" width="120.0" height="100.0" path="View.view">
             <parameters>
                 <param name="ID">
-                    <val>viewer3D</val>
+                    <val>viewer3D1</val>
                 </param>
             </parameters>
         </block>
