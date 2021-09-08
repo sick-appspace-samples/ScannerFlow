@@ -1,32 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <glue>
-    <info>
-        <usage>dflow</usage>
-    </info>
-    <blocks id="Main">
-        <block type="Function" name="transformToPointCloud" function="pointCloud=Scan.Transform.transformToPointCloud(scan)" x="601.83" y="-82.7" width="120.0" height="100.0" path="Scan.Transform.transformToPointCloud">
-            <parameters/>
-        </block>
-        <block type="Consumer" name="view" function="View.view(iconics,decoration)" x="604.83" y="101.3" width="120.0" height="100.0" path="View.view">
-            <parameters>
-                <param name="ID">
-                    <val>viewer3D1</val>
-                </param>
-            </parameters>
-        </block>
-        <block type="Provider" name="OnNewScan" event="Scan.Provider.RemoteScanner.OnNewScan(scan,sensordata)" x="602.08" y="-240.88" width="120.0" height="76.0" path="Scan.Provider.RemoteScanner.OnNewScan">
-            <parameters>
-                <param name="IPAddress">
-                    <val>192.168.0.1</val>
-                </param>
-                <param name="Interface">
-                    <val>ETHERNET</val>
-                </param>
-            </parameters>
-        </block>
-    </blocks>
-    <connections>
-        <link from="transformToPointCloud:pointCloud" to="view:iconics"/>
-        <link from="OnNewScan:scan" to="transformToPointCloud:scan"/>
-    </connections>
+  <info>
+    <usage>dflow</usage>
+  </info>
+
+
+  <blocks id="Main">
+    <block type="Function" name="transformToPointCloud" function="pointCloud=Scan.Transform.transformToPointCloud(scan)" x="306" y="658" height="140" width="70" path="Scan.Transform.transformToPointCloud" blocksEditorX="427" blocksEditorY="306" docked="false" userLabel="transformToPointCloud">
+      <parameters/>
+    </block>
+    <block type="Consumer" name="view" function="View.view(iconics, decoration)" createParameters="" x="323" y="978" height="140" width="70" path="View.view" blocksEditorX="635" blocksEditorY="323" docked="false" userLabel="view">
+      <parameters>
+        <param name="ID">
+          <val>viewer3D1</val>
+        </param>
+      </parameters>
+    </block>
+    <block type="Provider" name="OnNewScan" event="Scan.Provider.RemoteScanner.OnNewScan(scan, sensordata)" x="323" y="234" height="140" width="70" path="Scan.Provider.RemoteScanner.OnNewScan" blocksEditorX="152" blocksEditorY="323" docked="false" userLabel="OnNewScan">
+      <parameters>
+        <param name="IPAddress">
+          <val>192.168.1.100</val>
+        </param>
+        <param name="Interface">
+          <val>ETHERNET</val>
+        </param>
+      </parameters>
+    </block>
+
+  </blocks>
+  <connections>
+    <link from="transformToPointCloud:pointCloud" to="view:iconics" balanceFactor="0.5"/>
+    <link from="OnNewScan:scan" to="transformToPointCloud:scan" balanceFactor="0.5"/>
+
+  </connections>
 </glue>
